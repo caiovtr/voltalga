@@ -28,6 +28,6 @@ export const styles = StyleSheet.create({
     input: {
         fontSize: 18,
         padding: 10,
-        width: "70%"
+        width: "70%",
     }
 })

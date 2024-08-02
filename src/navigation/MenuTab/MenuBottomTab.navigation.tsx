@@ -1,14 +1,13 @@
 import { BottomTabNavigationProp, createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import { Slide1, Slide2 } from '../../screens';
-import { Entypo, Feather } from '@expo/vector-icons';
-import { Perfil } from '../../screens/Perfil';
-import { Mensagem } from '../../screens/Mensagem';
+import { Mensagem, Perfil } from '../../screens';
+import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons';
+import { colors } from '../../styles/colors'
 
 type MenuTabParam = {
     Mensagem: undefined
     Perfil: undefined
 }
-type MenuScreenNavigation = BottomTabNavigationProp<MenuTabParam, "Slide1">
+type MenuScreenNavigation = BottomTabNavigationProp<MenuTabParam, "Perfil">
 export type MenuTabTypes = {
     navigation: MenuScreenNavigation
 }
@@ -16,19 +15,27 @@ export type MenuTabTypes = {
 export function MenuTabs() {
     const Tab = createBottomTabNavigator<MenuTabParam>();
     return(
-        <Tab.Navigator>
-            <Tab.Screen name='Mensagem' component={Mensagem}
-                options={{
-                    tabBarIcon: () => (
-                        <Entypo name="slideshare" size={24} colors="black"/>
-                    )
-                }}
-            />
+        <Tab.Navigator
+            screenOptions = {{
+                tabBarActiveBackgroundColor: colors.secondary,
+                tabBarActiveTintColor: colors.white,
+                headerShown: false,
+                tabBarInactiveBackgroundColor: colors.secondary,
+                tabBarInactiveTintColor: colors.white,
+            }}
+            >
             <Tab.Screen name='Perfil' component={Perfil}
                 options={{
                     tabBarIcon: () => (
-                        <Feather name="sliders" size={24} colors="black"/>
-                    )
+                        <Ionicons name="person" size={24} color={colors.white}/>
+                    ),
+                }}
+            />
+            <Tab.Screen name='Mensagem' component={Mensagem}
+                options={{
+                    tabBarIcon: () => (
+                        <AntDesign name="message1" size={24} color={colors.white}/>
+                    ),
                 }}
             />
        </Tab.Navigator>

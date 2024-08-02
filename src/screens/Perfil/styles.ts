@@ -19,6 +19,5 @@ export const styles = StyleSheet.create({
     },
     sociaisText:{
       marginLeft: 5,
-      color: colors.white
     }
 })

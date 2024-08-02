@@ -5,7 +5,7 @@ import { MenuTabTypes, MenuTabs } from "../../navigation/MenuTab/MenuBottomTab.n
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { useAuth } from "../../hook/auth"
 
-export function Mensagem({ navigation }: MenuTabTypes) {
+export function Perfil({ navigation }: MenuTabTypes) {
   const { user, signOut } = useAuth()
   return (
     <View style={styles.container}>

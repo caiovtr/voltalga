@@ -4,8 +4,9 @@ import { Entypo, MaterialIcons} from "@expo/vector-icons"
 import { styles } from './styles';
 import { colors } from '../../styles/colors';
 import { ButtonInterface } from '../../components/ButtonInterface/index';
-import { LoginTypes } from '../../navigation/loginStack.navigation';
+import { LoginTypes } from '../../navigation/drawer.navigation';
 import { useAuth } from '../../hook/auth';
+import { AxiosError } from 'axios';
 
 export interface IAuthenticate {
     email?: string;
@@ -65,7 +66,7 @@ export function Login({ navigation }: LoginTypes) {
                     />
                     </View>
                     <ButtonInterface title='Login' type='primary' onPressI={handleHome} />
-                    <ButtonInterface title='Cadastrar-se' type='secondary' onPressI={handleRegister} />
+                    <ButtonInterface title='Cadastrar-se' type='third' onPressI={handleRegister} />
                 </KeyboardAvoidingView>
             </View>
         )
