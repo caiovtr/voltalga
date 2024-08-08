@@ -1,12 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { Navigation } from "./src/navigation";
-import { Menu } from "./src/navigation/MenuTab/index"
+import { AuthProvider } from "./src/context/auth"
 
 export default function App() {
   return (
     <>
+    <AuthProvider>
       <Navigation />
+      </AuthProvider>
       <StatusBar style="auto" />
     </>
-  )
+  );
 }

@@ -1,12 +1,19 @@
 import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { LoginNavigation } from "./drawer.navigation";
+import { DrawerNavigation } from "./drawer.navigation";
 import { MenuTabs } from "./MenuTab/MenuBottomTab.navigation"
+import { useAuth } from "../hook/auth"
+import { Loading } from "../components/Loading"
+
 
 export function Navigation() {
+    const { user, loading } = useAuth()
+    if (loading) {
+        return <Loading />
+    }
     return (
         <NavigationContainer>
-            <LoginNavigation />
+            {user?.token ? <DrawerNavigation /> : <MenuTabs />}
         </NavigationContainer>
     )
 }
