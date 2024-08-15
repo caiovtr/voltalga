@@ -1,7 +1,7 @@
 import { createBottomTabNavigator, BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Perfil } from '../screens'
 import { colors } from '../styles/colors';
-import { Feather, FontAwesome } from '@expo/vector-icons';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import {MessageNavigation} from './message.navigation'
 
@@ -31,14 +31,14 @@ export function TabNavigation() {
         <Tab.Screen name='Perfil' component = {Perfil}
             options={{
             tabBarIcon: () =>(
-            <FontAwesome name="home" size={24} color={colors.white} />
+            <AntDesign name="user" size={24} color="white" />
             ),
             }}
         />
         <Tab.Screen name='Mensagem' component= {MessageNavigation}
                 options={{
                     tabBarIcon: () => (
-                        <Feather name="message-circle" size={24} color = {colors.white} />
+                        <MaterialCommunityIcons name="message-badge-outline" size={24} color="white" />
                     ),
                 }}
         />

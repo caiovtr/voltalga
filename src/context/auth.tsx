@@ -18,6 +18,7 @@ export interface IAuthContextData {
 export interface IProvider {
     children: ReactNode
 }
+
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData)
 
 const AuthProvider = ({ children }: IProvider) => {
@@ -35,13 +36,16 @@ const AuthProvider = ({ children }: IProvider) => {
     const removeLocalStorage = useCallback(async () => {
         await AsyncStorage.removeItem("user")
     }, [])
+
     const signOut = useCallback(async () => {
         setAuth({} as IAuthenticated)
         await removeLocalStorage()
         delete api.defaults.headers.common.Authorization
     }, [])
+
     const loadUserStorageData = useCallback(async () => {
         const user = await AsyncStorage.getItem("user")
+
         if (user) {
             const userParse = JSON.parse(user) as IAuthenticated
             if (isAfter(parseISO(userParse.token.expires_at), new Date())) {
@@ -53,7 +57,7 @@ const AuthProvider = ({ children }: IProvider) => {
                 return false
             }
         } else {
-            false
+            return false
         }
     }, [])
     useEffect(() => {
@@ -74,4 +78,5 @@ const AuthProvider = ({ children }: IProvider) => {
         </AuthContext.Provider>
     )
 }
+
 export { AuthProvider, AuthContext }

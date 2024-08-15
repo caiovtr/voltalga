@@ -1,17 +1,18 @@
 import { api } from "../../api";
+
 export interface IUser {
-    name?: string,
-    email?: string,
-    password?: string,
+    name?: string
+    email?: string
+    password?: string
 }
+
 export interface IResponseUser {
     name: string
     email: string
-    create_at: string
-    update_at: string
+    created_at: string
+    updated_at: string
     id: number
 }
-
 export interface IAuthenticated {
     user: IResponseUser
     token: {
@@ -24,7 +25,7 @@ class UserData {
     register(data: IUser) {
         return api.post<IResponseUser>('/register', data)
     }
-    login(data:IUser) {
+    login(data: IUser) {
         return api.post<IAuthenticated>('/login', data)
     }
 }

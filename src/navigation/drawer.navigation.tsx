@@ -1,14 +1,12 @@
 import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
-import { MenuTabs } from './MenuTab/MenuBottomTab.navigation';
-import { Login, Register } from "../screens"
-import { Ionicons } from '@expo/vector-icons';
-import { colors } from '../styles/colors'
-
+import { colors } from '../styles/colors';
+import { AntDesign } from '@expo/vector-icons';
+import { TabNavigation } from './tab.navigation';
+import React from 'react';
 type DrawerParamList = {
-    Login: undefined
-    Register: undefined
+    Tab: undefined
 }
-type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Login'>
+type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Tab'>
 export type DrawerTypes = {
     navigation: DrawerScreenNavigationProp
 }
@@ -19,26 +17,17 @@ export function DrawerNavigation() {
             headerStyle: { backgroundColor: colors.secondary },
             headerTintColor: colors.white,
             drawerStyle: {
-                backgroundColor: colors.secondary
+                backgroundColor: colors.secondary,
             },
             drawerActiveTintColor: colors.white,
             drawerInactiveTintColor: colors.white
         }}>
-            <Drawer.Screen name='Login' component={Login}
+            <Drawer.Screen name='Tab' component={TabNavigation}
                 options={{
                     drawerLabel: 'Perfil',
                     headerTitle: 'Perfil',
                     drawerIcon: () => (
-                        <Ionicons name="person" size={24} color={colors.white} />
-                    ),
-                }}
-            />
-            <Drawer.Screen name='Register' component={Register}
-                options={{
-                    drawerLabel: 'Perfil',
-                    headerTitle: 'Perfil',
-                    drawerIcon: () => (
-                        <Ionicons name="person" size={24} color={colors.white} />
+                        <AntDesign name="user" size={24} color="white" />
                     ),
                 }}
             />

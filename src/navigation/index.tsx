@@ -1,19 +1,18 @@
-import React from "react";
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { DrawerNavigation } from "./drawer.navigation";
-import { MenuTabs } from "./MenuTab/MenuBottomTab.navigation"
-import { useAuth } from "../hook/auth"
-import { Loading } from "../components/Loading"
-
+import { LoginNavigation } from './loginStack.navigation';
+import { useAuth } from '../hook/auth';
+import { DrawerNavigation } from '../navigation/drawer.navigation'
+import { Loading } from '../components/Loading'
 
 export function Navigation() {
-    const { user, loading } = useAuth()
-    if (loading) {
-        return <Loading />
+    const {user, loading} = useAuth ()
+    if (loading){
+        return <Loading/>
     }
-    return (
+    return(
         <NavigationContainer>
-            {user?.token ? <DrawerNavigation /> : <MenuTabs />}
+            {user?.token ? <DrawerNavigation /> : <LoginNavigation />}
         </NavigationContainer>
     )
 }
