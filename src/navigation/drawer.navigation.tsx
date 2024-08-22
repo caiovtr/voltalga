@@ -1,10 +1,12 @@
 import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
 import { colors } from '../styles/colors';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { TabNavigation } from './tab.navigation';
+import { Camera } from '../screens/Camera'
 import React from 'react';
 type DrawerParamList = {
     Tab: undefined
+    Camera: undefined
 }
 type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Tab'>
 export type DrawerTypes = {
@@ -28,6 +30,13 @@ export function DrawerNavigation() {
                     headerTitle: 'Perfil',
                     drawerIcon: () => (
                         <AntDesign name="user" size={24} color="white" />
+                    ),
+                }}
+            />
+            <Drawer.Screen name='Camera' component={Camera}
+                options={{
+                    drawerIcon: () => (
+                        <Ionicons name="camera" size={24} color={colors.white} />
                     ),
                 }}
             />
