@@ -3,7 +3,7 @@ import { KeyboardAvoidingView, View, Text, TextInput, Alert } from 'react-native
 import { MaterialIcons, Entypo } from "@expo/vector-icons";
 import { styles } from './styles';
 import { colors } from '../../styles/colors';
-import { ComponentButtonInterface } from '../../components';
+import { ButtonInterface } from '../../components';
 import { LoginTypes } from '../../navigation/loginStack.navigation';
 import { useAuth } from '../../hook/auth';
 import { AxiosError } from 'axios';
@@ -63,8 +63,8 @@ return (
                     autoCapitalize="none"
                     onChangeText={(i) => handleChange({ password: i })} />
             </View>
-            <ComponentButtonInterface title='Login' type='primary' onPressI={handleSignIn} />
-            <ComponentButtonInterface title='Cadastre-se' type='secondary' onPressI={handleRegister} />
+            <ButtonInterface title='Login' type='primary' onPressI={handleSignIn} />
+            <ButtonInterface title='Cadastre-se' type='secondary' onPressI={handleRegister} />
         </KeyboardAvoidingView >
     </View>
     

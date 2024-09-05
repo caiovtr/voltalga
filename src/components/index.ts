@@ -1,1 +1,2 @@
-export {ButtonInterface as ComponentButtonInterface} from "./ButtonInterface"
+export {ButtonInterface} from "./ButtonInterface"
+export {Loading} from "./Loading"

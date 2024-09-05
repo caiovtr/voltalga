@@ -2,7 +2,7 @@ import { View, Text} from 'react-native';
 import { styles } from "./styles";
 import { useAuth } from "../../hook/auth";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { ComponentButtonInterface } from "../../components";
+import { ButtonInterface } from "../../components";
 
 export function Perfil() {
     const {user, signOut} = useAuth()
@@ -25,7 +25,7 @@ export function Perfil() {
             <Text style={styles.sociaisText} >https://www.linkedin.com/</Text> 
             </View >
         </View >
-        <ComponentButtonInterface title="Sair" type="primary"
+        <ButtonInterface title="Sair" type="primary"
             onPressI={async()=> await signOut()}
         />
     </View >

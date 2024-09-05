@@ -1,14 +1,16 @@
 import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
 import { colors } from '../styles/colors';
-import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { TabNavigation } from './tab.navigation';
 import { Camera } from '../screens/Camera'
 import { Imagens } from '../screens/Imagens'
+import { ScreenQrCode } from '../screens';
 import React from 'react';
 type DrawerParamList = {
     Tab: undefined
     Camera: undefined
     Imagem: undefined
+    QrCode: undefined
 }
 type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Tab'>
 export type DrawerTypes = {
@@ -49,6 +51,13 @@ export function DrawerNavigation() {
                     ),
                 }} 
             />
+            <Drawer.Screen name='QrCode' component={ScreenQrCode}
+                options={{
+                    drawerIcon: () => (
+                        <MaterialCommunityIcons name="qrcode-scan" size={24} color={colors.white} />
+                    ),
+                }}
+                />
         </Drawer.Navigator>
     )
 }
