@@ -11,7 +11,7 @@ type DrawerParamList = {
     Camera: undefined
     Imagem: undefined
     QrCode: undefined
-    Location: undefined
+    Localização: undefined
 }
 type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Tab'>
 export type DrawerTypes = {
@@ -59,7 +59,7 @@ export function DrawerNavigation() {
                     ),
                 }}
             />
-            <Drawer.Screen name='Location' component={ScreenLocation}
+            <Drawer.Screen name='Localização' component={ScreenLocation}
                 options={{
                     drawerIcon: () => (
                         <FontAwesome5 name="map-marked-alt" size={24} color={colors.white} />

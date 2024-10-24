@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../styles/colors';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -12,5 +13,17 @@ export const styles = StyleSheet.create({
     paragraph: {
         fontSize: 18,
         textAlign: "center",
+    },
+    searchInput: {
+        height: 56,
+        borderRadius: 7,
+        borderWidth: 2,
+        borderColor: colors.third
+    },
+    searchContainer: {
+        position: 'absolute',
+        zIndex: 1,
+        width: '90%',
+        top: 10
     }
 });
