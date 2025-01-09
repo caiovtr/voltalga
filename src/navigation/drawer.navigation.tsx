@@ -4,7 +4,7 @@ import { AntDesign, FontAwesome, Ionicons, MaterialCommunityIcons, FontAwesome5 
 import { TabNavigation } from './tab.navigation';
 import { Camera } from '../screens/Camera'
 import { Imagens } from '../screens/Imagens'
-import { ScreenQrCode, ScreenLocation, ScreenLocationMapOrDest, ScreenAcelerometro } from '../screens';
+import { ScreenQrCode, ScreenLocation, ScreenLocationMapOrDest, ScreenAcelerometro, ScreenVideo } from '../screens';
 import React from 'react';
 type DrawerParamList = {
     Tab: undefined
@@ -14,6 +14,7 @@ type DrawerParamList = {
     Localização: undefined
     LocationMapOrDest: undefined
     Acelerometro: undefined
+    Video: undefined
 }
 type DrawerScreenNavigationProp = DrawerNavigationProp<DrawerParamList, 'Tab'>
 export type DrawerTypes = {
@@ -78,7 +79,14 @@ export function DrawerNavigation() {
             <Drawer.Screen name='Acelerometro' component={ScreenAcelerometro}
                 options={{
                     drawerIcon: () => (
-                        <AntDesign name="car" size={24} color="black" />
+                        <AntDesign name="car" size={24} color="white" />
+                    ),
+                }}
+            />
+            <Drawer.Screen name='Video' component={ScreenVideo}
+                options={{
+                    drawerIcon: () => (
+                        <FontAwesome name="video-camera" size={24} color="white" />
                     ),
                 }}
             />
